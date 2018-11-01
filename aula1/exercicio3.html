@@ -1,0 +1,40 @@
+<!-- Aula 1 - Exercício 3 -->
+
+<!DOCTYPE html>
+<html>
+    <title> Exercício </title>
+<body>
+
+<h1>Ler dois lados de um ratângulo e calcular a área</h1>
+    
+<button onclick=calculaArea()>Calcular!</button>
+
+<script>
+    
+    function calculaArea() {
+        var v_1 = window.prompt("Informe o lado A:");
+        
+        while( isNaN(v_1) ){
+            alert("O valor digitado não corresponde a um número");
+            var v_1 = window.prompt("Informe o lado A:");
+        } 
+
+        var v_2 = window.prompt("Informe o lado B:");
+
+        while( isNaN(v_2) ){
+            alert("O valor digitado não corresponde a um número");
+            var v_2 = window.prompt("Informe o lado B:");
+        } 
+        
+        v_total = (parseInt(v_1) * parseInt(v_2));
+                   
+        if (v_1 == v_2){
+            alert("A área do quadrado é de: " + v_total);
+        } else {
+            alert("A área do retângulo é de: " + v_total);
+        }
+    }    
+</script>
+    
+</body>
+</html>

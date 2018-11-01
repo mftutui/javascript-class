@@ -1,0 +1,46 @@
+<!-- Aula 1 - Atividade 3 -->
+
+<!-- Criar um campo texto, e ao lado um botão “adicionar”. Criar um campo select, sem opções. 
+Ao clicar no botão “adicionar” o valor digitado no campo texto deve
+ser adicionado como uma nova opção no select.
+O select não deve possibilitar a inclusão de valores repetidos e nem
+de valor vazio. -->
+
+
+
+<!DOCTYPE html>
+<html>
+    <title> Atividade 3</title>
+<body>
+
+<h1>Alimentando caixa de seleção</h1>
+
+<p>Escreva uma nova opção: </p> 
+<input type="text" id="newOption">
+    
+<select id="selectId">
+    <option value="hhjj"></option>
+</select>    
+    
+<p><button type="button" onclick="selectionBox()"> Adicionar</button></p>
+
+<script>
+    function selectionBox(){
+        
+        var select = document.getElementById("selectId");
+        var option = document.createElement("option");
+        
+        option.text = document.getElementById("newOption").value;
+        
+    
+        if(option.text == null){
+            alert("vazio");
+        } else {
+            select.add(option);          
+        }   
+    }
+</script>
+    
+    
+</body>
+</html>

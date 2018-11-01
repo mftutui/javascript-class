@@ -1,0 +1,36 @@
+<!-- Aula 1 - Exercício 2 -->
+
+<!DOCTYPE html>
+<html>
+    <title> Exercício 2</title>
+<body>
+
+<h1>Cálculo fatorial de um valor</h1>
+    
+<button onclick=calculaFatorial()>Calcular!</button>
+
+<script>
+    
+    function calculaFatorial(){
+        var v_1 = prompt("Digite o valor:");
+
+        while(isNaN(v_1)){
+            alert("O valor digitado não é um número");
+            var v_1 = prompt("Digite o valor:");
+        }
+
+        n = parseInt(v_1);
+        var fat = 1;
+        var i;
+
+        for (i = 1; i <= n ; i++) { 
+            fat = fat * i;
+        }
+        
+        alert("O fatorial de " + n + " é igual a " + fat);
+    }
+</script>
+</body>
+</html>
+
+

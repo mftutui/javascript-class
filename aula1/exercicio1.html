@@ -1,0 +1,46 @@
+<!-- Aula 1 - Exercício 1 -->
+
+<!DOCTYPE html>
+<html>
+    <title> Exercício 1</title>
+    
+<body>
+
+<h1>Cálculo da média de 3 valores</h1>
+    
+<button onclick=calculaMedia()>Calcular!</button>
+
+<script>    
+    
+    
+    function calculaMedia() {
+        var v_1 = window.prompt("Digite o primeiro valor:");
+        
+        while( isNaN(v_1) ){
+            alert("O valor digitado não corresponde a um número");
+            var v_1 = window.prompt("Digite o primeiro valor:");
+        } 
+
+        var v_2 = window.prompt("Digite o segundo valor:");
+
+        while( isNaN(v_2) ){
+            alert("O valor digitado não corresponde a um número");
+            var v_2 = window.prompt("Digite o segundo valor:");
+        } 
+
+        var v_3 = window.prompt("Digite o terceiro valor:");
+
+        while( isNaN(v_3) ){
+            alert("O valor digitado não corresponde a um número");
+            var v_3 = window.prompt("Digite o terceiro valor:");
+        } 
+
+        v_total = (parseInt(v_1) + parseInt(v_2) + parseInt(v_3))/3;
+
+        alert("A média entre os números " + v_1 + ", " + v_2 + " e " + v_3 + " é igual a " + v_total + ".");
+    }
+    
+</script>
+
+</body>
+</html>

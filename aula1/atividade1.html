@@ -1,0 +1,103 @@
+<!-- Atividade 1 -->
+
+<!-- Crie um formuário com os seguintes campos:
+Nome (texto simples)
+Senha
+Confirmação de senha
+Gênero (radio: masculino e feminino)
+E-mail (text simples)
+Telefone (texto simples)
+Endereço (textarea)
+Tipo endereço (select: casa ou apartamento)
+Forma de contato(checkbox: e-mail e/ou telefone)
+
+Regras de validação:
+Todos os campos são de preenchimento obrigatório
+A senha e a confirmação da senha devem ser iguais
+A senha deve ter no mínimo 8 caracteres
+O email deve obrigatóriamente conter o caractere "@" -->
+
+<!-- Atividade 1 -->
+
+<!-- Crie um formuário com os seguintes campos:
+Nome (texto simples)
+Senha
+Confirmação de senha
+Gênero (radio: masculino e feminino)
+E-mail (text simples)
+Telefone (texto simples)
+Endereço (textarea)
+Tipo endereço (select: casa ou apartamento)
+Forma de contato(checkbox: e-mail e/ou telefone)
+
+Regras de validação:
+Todos os campos são de preenchimento obrigatório
+A senha e a confirmação da senha devem ser iguais
+A senha deve ter no mínimo 8 caracteres
+O email deve obrigatóriamente conter o caractere "@" -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<form name="atividade1" id="form">
+<h2>Formulário</h2>
+
+<p>Nome:</p>
+<input name="name" type="text" id="name">
+
+<p>Senha:</p>
+<input name="pass1" type="password" id="pass1">
+
+<p>Confirme a senha:</p>
+<input name="pass2" type="password" id="pass2">
+
+<p>Gênero:</p>
+<input type="radio" name="gender" value="fem"> Feminino
+<input type="radio" name="gender" value="masc"> Masculino
+
+<p>E-mail:</p>
+<input id="email">
+
+<p>Telefone:</p>
+<input id="tel">
+
+<p>Endereço:</p>
+<input type="textarea" value=address>
+
+<p>Tipo de endereço:</p>
+<input type="radio" name="addressType" value="house"/> Casa
+<input type="radio" name="addressType" value="apart"/> Apartamento
+
+<p>Forma de contato:</p>
+<input name="contactType" type="checkbox" value="emailContact"> E-mail 
+<input name="contactType" type="checkbox" value="telContact"> Telefone <br>
+
+<p><button type="button" onclick="validForm()">Submit</button></p>
+
+</form>
+
+<script>
+    
+function validForm() {
+
+    name = document.getElementById("name").value;
+    pass1 = document.getElementById("pass1").value;
+    pass2 = document.getElementById("pass2").value;
+    gender = document.getElementsByName("gender").value;
+    email = document.getElementById("email").value;
+    tel = document.getElementById("tel").value;
+    address = document.getElementById("address")
+    addType = document.getElementsByName("addressType").value;
+    contactType = document.getElementsByName("contactType").value;
+    
+    alert(gender);
+    
+}
+</script>
+
+    
+</body>
+</html> 
+
