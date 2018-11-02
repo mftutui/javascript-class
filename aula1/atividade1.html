@@ -17,25 +17,6 @@ A senha e a confirmação da senha devem ser iguais
 A senha deve ter no mínimo 8 caracteres
 O email deve obrigatóriamente conter o caractere "@" -->
 
-<!-- Atividade 1 -->
-
-<!-- Crie um formuário com os seguintes campos:
-Nome (texto simples)
-Senha
-Confirmação de senha
-Gênero (radio: masculino e feminino)
-E-mail (text simples)
-Telefone (texto simples)
-Endereço (textarea)
-Tipo endereço (select: casa ou apartamento)
-Forma de contato(checkbox: e-mail e/ou telefone)
-
-Regras de validação:
-Todos os campos são de preenchimento obrigatório
-A senha e a confirmação da senha devem ser iguais
-A senha deve ter no mínimo 8 caracteres
-O email deve obrigatóriamente conter o caractere "@" -->
-
 <!DOCTYPE html>
 <html>
 <body>
@@ -64,7 +45,7 @@ O email deve obrigatóriamente conter o caractere "@" -->
 <input id="tel">
 
 <p>Endereço:</p>
-<input type="textarea" value=address>
+<input type="textarea">
 
 <p>Tipo de endereço:</p>
 <input type="radio" name="addressType" value="house"/> Casa
@@ -78,13 +59,8 @@ O email deve obrigatóriamente conter o caractere "@" -->
 
 </form>
 
-<script>
+<script type="text/javascript" language="javascript">
     
-function validForm() {
-
-    name = document.getElementById("name").value;
-    pass1 = document.getElementById("pass1").value;
-    pass2 = document.getElementById("pass2").value;
     gender = document.getElementsByName("gender").value;
     email = document.getElementById("email").value;
     tel = document.getElementById("tel").value;
@@ -92,9 +68,36 @@ function validForm() {
     addType = document.getElementsByName("addressType").value;
     contactType = document.getElementsByName("contactType").value;
     
-    alert(gender);
+
+    function validForm (){
+        if(document.getElementById("name").value == ""){
+            alert('Por favor, preencha o campo nome.');
+            document.getElementById("nome").focus();
+            return false;
+        }
+        
+        if(document.getElementById("pass1").value == ""){
+            alert('Por favor, preencha o campo senha.');
+            document.getElementById("pass1").focus();
+            return false;
+        }
+        
+        if(document.getElementById("pass2").value == ""){
+            alert('Por favor, preencha o campo de confrimação de senha.');
+            document.getElementById("pass2").focus();
+            return false;
+        }
+        
+        if(document.getElementById("pass1").value != document.getElementById("pass2").value){
+            alert('As senhas precisam ser identicas!');
+            document.getElementById("pass1").value='';
+            document.getElementById("pass2").value='';
+            document.getElementById("pass1").focus();
+            return false;
+        }
     
-}
+    }
+    
 </script>
 
     
