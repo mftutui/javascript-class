@@ -1,5 +1,181 @@
 <!-- Aula 1 - Atividade 2 -->
 
-<!-- Dado o formulario válidado na atividade anterior, após a validação, extraia todos os valores informados pelo usuário, e escreva-os em forma de relatório em uma <div> n parte inferior do formulário.
+<!-- Dado o formulario válidado na atividade anterior, após a validação, extraia todos os valores informados pelo usuário, e escreva-os em forma de relatório em uma <div> na parte inferior do formulário.
 a) O retorno deve apresentar cada valor de cada campo em uma unica linha, e o label do campo deve estar em negrito.
 b) A senha não precisa ser exibida -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<form name="atividade1" id="form">
+    
+    <h2>Formulário</h2>
+
+    <div class="atividade" id="nameR">     
+        <p>Nome:</p>
+        <input name="name" type="text" id="name">
+    </div>
+
+    <div class="atividade" id="passR">
+        <p>Senha:</p>
+        <input name="pass1" type="password" id="pass1">
+    
+        <p>Confirme a senha:</p>
+        <input name="pass2" type="password" id="pass2">
+    </div>
+
+    <div class="atividade" id="genderR">
+        <p>Gênero:</p>
+        <input type="radio" id="fem" name="gender" value="fem"> Feminino
+        <input type="radio" id="masc" name="gender" value="masc"> Masculino
+    </div>
+
+    <div class="atividade" id="emailR">
+        <p>E-mail:</p>
+        <input id="email">
+    </div>
+
+    <div class="atividade" id="telR">
+        <p>Telefone:</p>
+        <input id="tel">
+    </div>
+
+    <div class="atividade" id="addressR">
+        <p>Endereço:</p>
+        <input type="textarea" id="address">
+    </div>
+        
+    <div class="atividade" id="addressTypeR">
+        <p>Tipo de endereço:</p>
+        <input type="radio" name="addressType" value="house"/> Casa
+        <input type="radio" name="addressType" value="apart"/> Apartamento
+    </div>
+        
+    <div class="atividade" id="contactTypeR">
+        <p>Forma de contato:</p>
+        <input name="contactType" type="checkbox" id="typeEmail" value="emailContact"> E-mail 
+        <input name="contactType" type="checkbox" id="typeTel" value="telContact"> Telefone <br>
+    </div>
+
+    <div class="atividade" id="button">
+        <p><button type="button" onclick="validForm()">Enviar formulário</button></p>
+        <p><button type="button" onclick="report()">Gerar relatório</button></p>
+    </div>
+</form>
+
+<script type="text/javascript" language="javascript">
+    
+    var aux = 0;
+    
+    function validForm (){
+        
+        var gender = document.forms[0].gender;
+        
+        var senha1 = document.getElementById("pass1").value;
+        var senha2 = document.getElementById("pass2").value;
+        
+        var email = document.getElementById("email").value;
+        var arroba = email.indexOf("@"); 
+        
+        var addtype = document.forms[0].addressType;
+        
+        var contactEmail = document.getElementById("typeEmail");
+        var contactTel = document.getElementById("typeTel");
+        
+        if(document.getElementById("name").value == ""){
+            alert('Por favor, preencha o campo nome.');
+            document.getElementById("nome").focus();
+            return false;
+        } else {
+            aux++;
+        }
+        
+        if(senha1 == ""){
+            alert('Por favor, preencha o campo senha.');
+            document.getElementById("pass1").focus();
+            return false;
+        }
+        
+        if(senha2 == ""){
+            alert('Por favor, preencha o campo de confrimação de senha.');
+            document.getElementById("pass2").focus();
+            return false;
+        }
+        
+        if(senha1 != senha2){
+            alert('As senhas precisam ser identicas!');
+            document.getElementById("pass1").value='';
+            document.getElementById("pass2").value='';
+            document.getElementById("pass1").focus();
+            return false;
+        } else {
+            if(senha1.length < 8 ){
+                alert('A senha deve ter no mínimo 8 caracteres.')
+                document.getElementById("pass1").value='';
+                document.getElementById("pass2").value='';
+                document.getElementById("pass1").focus();
+            } else {
+                aux++;
+            }
+        }
+        
+        if(gender.value == ""){
+            alert('Por favor, escolha um gênero.');
+        } else {
+            aux++;
+        }
+        
+        if(email == ""){
+            alert('Por favor, informe o seu e-mail.');
+            document.getElementById("email").focus();
+            return false;
+        } else {
+            if(arroba == -1){
+                alert('Por favor, informe um email válido.');
+                document.getElementById("email").focus();
+                return false;
+            } else {
+                aux++;
+            }
+        }
+        
+        if(document.getElementById("tel").value == ""){
+            alert('Por favor, informe o seu telefone.');
+            document.getElementById("tel").focus();
+            return false;
+        } else {
+            aux++;
+        }
+        
+        if(document.getElementById("address").value == ""){
+            alert('Por favor, informe o seu endereço.');
+            return false;
+        } else {
+            aux++;
+        }
+        
+        if(addtype.value == ""){
+            alert('Por favor, informe o tipo da sua residência.');
+            return false;
+        } else {
+            aux++;
+        }
+
+        if (!(contactEmail.checked == true || contactTel.checked == true)){
+            alert('Por favor, selecione uma forma de contato.');
+            return false;
+        } else {
+            aux++;
+        }
+    }
+    
+        <!--Pate2----------------------------------------------------------->
+        
+    
+</script>
+
+    
+</body>
+</html> 

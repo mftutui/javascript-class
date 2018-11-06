@@ -19,25 +19,50 @@ de valor vazio. -->
 <input type="text" id="newOption">
     
 <select id="selectId">
-    <option value="hhjj"></option>
+    <option value="1111">1111</option>
+    <option value="2222">2222</option>
+    <option value="3333">3333</option>
+    <option value="4444">4444</option>
+    <option value="5555">5555</option>
 </select>    
     
-<p><button type="button" onclick="selectionBox()"> Adicionar</button></p>
+<p><button type="button" onclick="addOnBox()"> Adicionar</button></p>
+<p><button type="button" onclick="removeFromBox()"> Remover</button></p>
 
 <script>
-    function selectionBox(){
+    function addOnBox(){
         
         var select = document.getElementById("selectId");
+        
         var option = document.createElement("option");
         
         option.text = document.getElementById("newOption").value;
         
-    
-        if(option.text == null){
-            alert("vazio");
+        var aux = document.getElementById("newOption").value;
+        
+        
+        console.log("AUX ====" + aux);
+        console.log("option.text ====" + option.text);
+        
+        if(option.text.isNaN || option.text == ""){
+            alert("Por favor, escreva uma nova opção.");
         } else {
-            select.add(option);          
-        }   
+            for (i = 0; i < selectId.length; i = i + 1) {
+                console.log(i);
+                console.log(selectId.options[i]);
+                var textoSelect = selectId.options[i].text;
+                console.log(textoSelect);
+                
+                if(textoSelect == option.text){
+                    console.log("chegou aqui");
+                    break;
+                } else {
+                    console.log("add");
+                    select.add(option);
+                }
+            }
+            
+        }
     }
 </script>
     

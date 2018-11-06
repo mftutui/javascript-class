@@ -35,8 +35,8 @@ O email deve obrigatóriamente conter o caractere "@" -->
 <input name="pass2" type="password" id="pass2">
 
 <p>Gênero:</p>
-<input type="radio" name="gender" value="fem"> Feminino
-<input type="radio" name="gender" value="masc"> Masculino
+<input type="radio" id="fem" name="gender" value="fem"> Feminino
+<input type="radio" id="masc" name="gender" value="masc"> Masculino
 
 <p>E-mail:</p>
 <input id="email">
@@ -45,15 +45,15 @@ O email deve obrigatóriamente conter o caractere "@" -->
 <input id="tel">
 
 <p>Endereço:</p>
-<input type="textarea">
+<input type="textarea" id="address">
 
 <p>Tipo de endereço:</p>
 <input type="radio" name="addressType" value="house"/> Casa
 <input type="radio" name="addressType" value="apart"/> Apartamento
 
 <p>Forma de contato:</p>
-<input name="contactType" type="checkbox" value="emailContact"> E-mail 
-<input name="contactType" type="checkbox" value="telContact"> Telefone <br>
+<input name="contactType" type="checkbox" id="typeEmail" value="emailContact"> E-mail 
+<input name="contactType" type="checkbox" id="typeTel" value="telContact"> Telefone <br>
 
 <p><button type="button" onclick="validForm()">Submit</button></p>
 
@@ -61,41 +61,91 @@ O email deve obrigatóriamente conter o caractere "@" -->
 
 <script type="text/javascript" language="javascript">
     
-    gender = document.getElementsByName("gender").value;
-    email = document.getElementById("email").value;
-    tel = document.getElementById("tel").value;
-    address = document.getElementById("address")
-    addType = document.getElementsByName("addressType").value;
-    contactType = document.getElementsByName("contactType").value;
-    
-
     function validForm (){
+        
+        var gender = document.forms[0].gender;
+        
+        var senha1 = document.getElementById("pass1").value;
+        var senha2 = document.getElementById("pass2").value;
+        
+        var email = document.getElementById("email").value;
+        var arroba = email.indexOf("@"); 
+        
+        var addtype = document.forms[0].addressType;
+        
+        var contactEmail = document.getElementById("typeEmail");
+        var contactTel = document.getElementById("typeTel");
+        
         if(document.getElementById("name").value == ""){
             alert('Por favor, preencha o campo nome.');
             document.getElementById("nome").focus();
             return false;
         }
         
-        if(document.getElementById("pass1").value == ""){
+        if(senha1 == ""){
             alert('Por favor, preencha o campo senha.');
             document.getElementById("pass1").focus();
             return false;
         }
         
-        if(document.getElementById("pass2").value == ""){
+        if(senha2 == ""){
             alert('Por favor, preencha o campo de confrimação de senha.');
             document.getElementById("pass2").focus();
             return false;
         }
         
-        if(document.getElementById("pass1").value != document.getElementById("pass2").value){
+        if(senha1 != senha2){
             alert('As senhas precisam ser identicas!');
             document.getElementById("pass1").value='';
             document.getElementById("pass2").value='';
             document.getElementById("pass1").focus();
             return false;
+        } else {
+            if(senha1.length < 8 ){
+                alert('A senha deve ter no mínimo 8 caracteres.')
+                document.getElementById("pass1").value='';
+                document.getElementById("pass2").value='';
+                document.getElementById("pass1").focus();
+            }
         }
-    
+        
+        if(gender.value == ""){
+            alert('Por favor, escolha um gênero.');
+        }
+        
+        if(email == ""){
+            alert('Por favor, informe o seu e-mail.');
+            document.getElementById("email").focus();
+            return false;
+        } else {
+            if(arroba == -1){
+                alert('Por favor, informe um email válido.');
+                document.getElementById("email").focus();
+                return false;
+            }
+        }
+        
+        if(document.getElementById("tel").value == ""){
+            alert('Por favor, informe o seu telefone.');
+            document.getElementById("tel").focus();
+            return false;
+        }
+        
+        if(document.getElementById("address").value == ""){
+            alert('Por favor, informe o seu endereço.');
+            return false;
+        }
+        
+        if(addtype.value == ""){
+            alert('Por favor, informe o tipo da sua residência.');
+            return false;
+        }
+
+        if (!(contactEmail.checked == true || contactTel.checked == true)){
+            alert('Por favor, selecione uma forma de contato.');
+            return false;
+        } 
+        
     }
     
 </script>
